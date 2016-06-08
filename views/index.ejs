@@ -7,5 +7,14 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <form method="POST" action="/tweets">
+      <input type="text" name="text">
+      <input type="submit" value="Submit">
+    </form>
+
+    <ul><% for (tweet in tweets) { %>
+    <li><%= tweets[tweet]['text'] %></li>
+    <% } %>
+    </ul>
   </body>
 </html>
