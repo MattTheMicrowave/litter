@@ -33,7 +33,8 @@ module.exports = {
   */
   create: function (req, res) {
     var tweet = new TweetModel({
-            text : req.body.text
+            text : req.body.text,
+            likes: req.body.likes
     });
 
     tweet.save(function (err, tweet) {
@@ -48,6 +49,7 @@ module.exports = {
     var id = req.params.id;
     TweetModel.findOne({_id: id}, function (err, tweet) {
       tweet.text = req.body.text ? req.body.text : tweet.text;
+      tweet.likes = req.body.likes ? req.body.likes : tweet.likes;
       tweet.save(function (err, tweet) {
         return res.json(tweet);
       });

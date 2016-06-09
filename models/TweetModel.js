@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var tweetSchema = new Schema({
 
 	'text': String,
-	'like': 0
+	'likes': Number
 });
 
 module.exports = mongoose.model('Tweet', tweetSchema);
