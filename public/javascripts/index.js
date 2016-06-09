@@ -41,20 +41,58 @@ var FormView = Backbone.View.extend({
 
 });
 
-var TweetView = Backbone.View.extend({
-	el: '<div></div>',
+var SingleTweetView = Backbone.View.extend({
+	el: '<li></li>',
 
 	template: _.template('\
-		<ul>\
-		<% tweets.each(function(tweet) { %>\
-			<li><%= tweet.get("text") %></li>\
-		<% }) %>\
-		</ul>\
+		<%= tweet.get("text") %>\
+		<span class="like">LIKE<%=tweet.get("likes") %></span>\
+		<span class="delete">delete</span>\
 	'),
 
+	events: {
+		'click .like' : 'likeCounter'
+
+	},
+
+	initialize: function () {
+		this.listenTo(this.model, 'sync', this.render);
+	},
+
+	likeCounter: function() {
+		var likeCount = this.model.get("likes");
+		this.model.set("likes", likeCount + 1);
+		this.model.save();
+
+	},
 	render: function() {
-		$(this.el).html(this.template({ tweets: this.collection
-		}));
+			$(this.el).html(this.template({ tweet: this.model }));
+			return this;
+	},
+
+
+});
+
+var TweetListView = Backbone.View.extend({
+	el: '<ul></ul>',
+
+	// template: _.template('\
+	// 	<ul>\
+	// 	<% tweets.each(function(tweet) { %>\
+	// 		<li><%= tweet.get("text") %></li>\
+	// 	<% }) %>\
+	// 	</ul>\
+	// '),
+
+	render: function() {
+		var that = this;
+		$(this.el).html('');
+		this.collection.each(function(tweet) {
+			var singleTweetView = new SingleTweetView({ model: tweet});
+			$(that.el).append(singleTweetView.render().el);
+
+		});
+		return this;
 	},
 
 	initialize: function() {
@@ -63,15 +101,15 @@ var TweetView = Backbone.View.extend({
 });
 
 	var tweets = new TweetsCollection();
-	var tweetsView = new TweetView({ collection: tweets });
+	var tweetListView = new TweetListView({ collection: tweets });
 	var formView = new FormView({ collection: tweets });
 
 	tweets.fetch({
 		success: function() {
 			console.log('y');
-			tweetsView.render();
+			tweetListView.render();
 			formView.render();
-			$("#tweet-list").html(tweetsView.el);
+			$("#tweet-list").html(tweetListView.el);
 			$("#tweet-form").html(formView.el);
 		}
 	});
