@@ -9,13 +9,5 @@ router.get('/', function(req, res, next) {
 });
 });
 
-router.post('/tweets', function(req, res, next) {
-	var tweet = new TweetModel({
-		text : req.body.text,
-    likes: req.body.likes
-	});
-	tweet.save(function(err, tweet) {
-	res.redirect('/');
-});
-});
+
 module.exports = router;

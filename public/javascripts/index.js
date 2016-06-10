@@ -32,10 +32,15 @@ var FormView = Backbone.View.extend({
 
 	stopForm: function (event) {
 		event.preventDefault();
+		var _this = this;
 		var newtweet = new TweetModel;
 		newtweet.set({ text : $('#tweet-input').val(), likes: 0});
-		newtweet.save();
-		this.collection.add(newtweet);
+		newtweet.save(null, {
+		success: function () {
+		_this.collection.add(newtweet);
+		}
+	  });
+
 		$('#tweet-input').val("");
 
 	}
