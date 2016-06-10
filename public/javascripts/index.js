@@ -46,13 +46,14 @@ var SingleTweetView = Backbone.View.extend({
 
 	template: _.template('\
 		<%= tweet.get("text") %>\
+		<br>\
 		<span class="like">LIKE<%=tweet.get("likes") %></span>\
-		<span class="delete">delete</span>\
+		<span class="delete">DELETE</span>\
 	'),
 
 	events: {
-		'click .like' : 'likeCounter'
-
+		'click .like' : 'likeCounter',
+		'click .delete' : 'remove'
 	},
 
 	initialize: function () {
@@ -64,6 +65,11 @@ var SingleTweetView = Backbone.View.extend({
 		this.model.set("likes", likeCount + 1);
 		this.model.save();
 
+	},
+
+	remove: function() {
+
+		this.model.destroy();
 	},
 	render: function() {
 			$(this.el).html(this.template({ tweet: this.model }));
