@@ -53,7 +53,8 @@ var SingleTweetView = Backbone.View.extend({
 	template: _.template('\
 		<%= tweet.get("text") %>\
 		<br>\
-		<span class="like">LIKE<%=tweet.get("likes") %></span>\
+		<span class="like">LIKE <%=tweet.get("likes") %></span>\
+		<br>\
 		<span class="delete">DELETE</span>\
 	'),
 
