@@ -16,15 +16,15 @@ var FormView = Backbone.View.extend({
 		<input type="submit" value="Submit">\
 		</form>\
 		',
-	render: function() {
-		this.listenTo(this.el, 'submit', function(event) {
-			event.preventDefault();
-
-	});
-
-	return this;
-
-	},
+	// render: function() {
+	// 	this.listenTo(this.el, 'submit', function(event) {
+	// 		event.preventDefault();
+	//
+	// });
+	//
+	// return this;
+	//
+	// },
 
 	events: {
 		'submit' : 'stopForm'
@@ -33,10 +33,11 @@ var FormView = Backbone.View.extend({
 	stopForm: function (event) {
 		event.preventDefault();
 		var newtweet = new TweetModel;
-		newtweet.set({ text : $('#tweet-input').val() });
+		newtweet.set({ text : $('#tweet-input').val(), likes: 0});
 		newtweet.save();
 		this.collection.add(newtweet);
 		$('#tweet-input').val("");
+
 	}
 
 });
@@ -57,20 +58,27 @@ var SingleTweetView = Backbone.View.extend({
 	},
 
 	initialize: function () {
-		this.listenTo(this.model, 'sync', this.render);
+		this.listenTo(this.model, 'sync', function() {
+				// console.log('ready');
+				// this.render();
+		});
 	},
 
 	likeCounter: function() {
+
 		var likeCount = this.model.get("likes");
 		this.model.set("likes", likeCount + 1);
 		this.model.save();
-
+		this.render();
+		console.log('yy');
 	},
 
 	remove: function() {
 
 		this.model.destroy();
+
 	},
+
 	render: function() {
 			$(this.el).html(this.template({ tweet: this.model }));
 			return this;
