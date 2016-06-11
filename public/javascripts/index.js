@@ -13,7 +13,7 @@ var TweetsCollection = Backbone.Collection.extend({
 var FormView = Backbone.View.extend({
 	el: '<form method="POST" action="/tweets">\
 		<input id="tweet-input" type="text" name="text">\
-		<input type="submit" value="Submit">\
+		<input type="submit" value="Toss It" id="mysubmitbutton">\
 		</form>\
 		',
 	// render: function() {
@@ -51,11 +51,12 @@ var SingleTweetView = Backbone.View.extend({
 	el: '<li></li>',
 
 	template: _.template('\
-		<%= tweet.get("text") %>\
+		<div id="imgdiv"><span><img class="pic" src="../images/fb2.jpg"</span></div>\
+		<div id="infodiv"><span><%= tweet.get("text") %></span>\
 		<br>\
 		<span class="like">LIKE&nbsp;<i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<%=tweet.get("likes") %></span>\
 		&nbsp;&nbsp;&nbsp;&nbsp;\
-		<span class="delete">DELETE&nbsp;<i class="fa fa-ban" aria-hidden="true"></i></span>\
+		<span class="delete">DELETE&nbsp;<i class="fa fa-ban" aria-hidden="true"></i></span></div>\
 	'),
 
 	events: {
