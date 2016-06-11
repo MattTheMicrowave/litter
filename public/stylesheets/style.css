@@ -1,15 +1,50 @@
+
+@font-face {
+
+font-family: 'ransom';
+    src: url('../fonts/Got_Heroin.ttf');
+
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+#litter {
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+}
+
+
+
+#welcome {
+
+  font-size: 80px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.para {
+    font-family: 'ransom';
+    font-size: 50px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+#elipse {
+  font-family: sans-serif;
+
+
+}
 a {
   color: #00B7FF;
 }
 
 #tweet-list ul {
   list-style: none;
-  
+
 
 }
 
