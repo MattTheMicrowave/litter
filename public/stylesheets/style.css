@@ -9,6 +9,12 @@ a {
 
 #tweet-list ul {
   list-style: none;
+  
 
+}
+
+li {
+  border: 2px solid blue;
+  text-align: center;
 
 }
