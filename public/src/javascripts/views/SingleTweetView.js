@@ -41,8 +41,6 @@ var SingleTweetView = Backbone.View.extend({
 			$(this.el).html(this.template({ tweet: this.model }));
 			return this;
 	}
+});
 
   module.exports = SingleTweetView;
-
-
-});

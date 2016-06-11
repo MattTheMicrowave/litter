@@ -25,6 +25,6 @@ var TweetListView = Backbone.View.extend({
 	initialize: function() {
 		this.listenTo(this.collection, 'update', this.render);
 	}
+});
 
   module.exports = TweetListView;
-});
