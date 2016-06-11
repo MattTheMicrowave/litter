@@ -50,7 +50,7 @@ a {
 
 li {
   border: 2px solid grey;
-  text-align: center;
+  text-align: justify;
   font-size: 35px;
   padding: 20px;
   margin-bottom: 5px;
@@ -69,6 +69,8 @@ li {
 
 border: 2px solid blue;
 height: 80px;
+margin-right: 20px;
+content:url("../images/fb2.jpg");
 
 }
 
@@ -87,4 +89,11 @@ height: 80px;
   color: white;
   font-size: 25px;
 
+}
+
+#reactdiv {
+margin:0 auto;
+display: block;
+text-align: center;
+margin-top: -20px;
 }

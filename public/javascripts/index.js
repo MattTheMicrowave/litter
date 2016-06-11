@@ -51,10 +51,10 @@ var SingleTweetView = Backbone.View.extend({
 	el: '<li></li>',
 
 	template: _.template('\
-		<div id="imgdiv"><span><img class="pic" src="../images/fb2.jpg"</span></div>\
-		<div id="infodiv"><span><%= tweet.get("text") %></span>\
+		<div id="imgdiv"><span><img class="pic"></span></div>\
+		<div id="infodiv"><span><%= tweet.get("text") %></span></div>\
 		<br>\
-		<span class="like">LIKE&nbsp;<i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<%=tweet.get("likes") %></span>\
+		<div id="reactdiv"><span class="like">LIKE&nbsp;<i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<%=tweet.get("likes") %></span>\
 		&nbsp;&nbsp;&nbsp;&nbsp;\
 		<span class="delete">DELETE&nbsp;<i class="fa fa-ban" aria-hidden="true"></i></span></div>\
 	'),
