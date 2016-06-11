@@ -1,3 +1,4 @@
+var Backbone = require('backbone');
 var SingleTweetView = require('./SingleTweetView');
 
 var TweetListView = Backbone.View.extend({

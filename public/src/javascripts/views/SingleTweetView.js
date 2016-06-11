@@ -1,3 +1,6 @@
+var _ = require('lodash');
+var Backbone = require('backbone');
+
 var SingleTweetView = Backbone.View.extend({
 	el: '<li></li>',
 

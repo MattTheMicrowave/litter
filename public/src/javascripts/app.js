@@ -1,6 +1,7 @@
 
 
 // $(document).on('ready', function() {
+  window.$ = window.jQuery = require('jquery');
   var TweetsCollection = require('./collections/TweetsCollection')
   var TweetListView = require('./views/TweetListView');
   var FormView = require('./views/FormView');

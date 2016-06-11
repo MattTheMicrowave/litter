@@ -1,3 +1,4 @@
+var Backbone = require('backbone');
 var TweetModel = require('../models/TweetModel');
 
 var FormView = Backbone.View.extend({

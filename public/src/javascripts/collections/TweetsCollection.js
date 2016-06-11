@@ -1,3 +1,4 @@
+var Backbone = require('backbone');
 var TweetModel = require('../models/TweetModel');
 
 
