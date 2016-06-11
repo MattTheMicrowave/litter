@@ -4,4 +4,4 @@ var TweetModel = Backbone.Model.extend ({
 
 });
 
-module.exports = TrashModel;
+module.exports = TweetModel;

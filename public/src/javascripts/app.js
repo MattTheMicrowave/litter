@@ -1,9 +1,10 @@
 
 
-$(document).on('ready', function() {
+// $(document).on('ready', function() {
   var TweetsCollection = require('./collections/TweetsCollection')
   var TweetListView = require('./views/TweetListView');
   var FormView = require('./views/FormView');
+  var TweetModel = require('./models/TweetModel');
 
   var tweets = new TweetsCollection();
   var tweetListView = new TweetListView({ collection: tweets });
@@ -22,4 +23,4 @@ $(document).on('ready', function() {
 
 
 
-});
+// });
